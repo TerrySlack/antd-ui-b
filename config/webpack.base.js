@@ -5,6 +5,15 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const paths = require("./paths");
 
+// getting each component to export separately
+// const entryComponentsDirectory = "./src/components";
+// const entryComponents = readdirSync(entryComponentsDirectory, { withFileTypes: true })
+//   .filter((dirent) => dirent.isDirectory())
+//   .reduce(
+//     (dirent, file) => Object.assign(dirent, { [file.name]: `${entryComponentsDirectory}/${file.name}/index.js` }),
+//     {},
+//   );
+
 module.exports = {
   // Where webpack looks to start building the bundle
   entry: [`${paths.src}/index.tsx`],

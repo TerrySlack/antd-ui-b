@@ -11,11 +11,17 @@ module.exports = merge(common, {
   output: {
     path: paths.build,
     publicPath: "dist",
-    filename: "index.js",
+    //filename: "index.js",
+    filename(file) {
+      if (file.chunk.name === "index") return "index.js";
+      return `${file.chunk.name}/index.js`;
+    },
     globalObject: "this",
     library: "antd-ui-b",
+    libraryTarget: "commonjs2",
+    umdNamedDefine: true,
     //libraryExport: "default",
-    libraryTarget: "umd",
+    //libraryTarget: "umd",
   },
   module: {
     rules: [
@@ -49,13 +55,13 @@ module.exports = merge(common, {
   optimization: {
     emitOnErrors: true,
     minimize: true,
-    minimizer: [
-      new TerserJSPlugin({
-        test: /\.js(\?.*)?$/i,
-        exclude: /\/node_modules/,
-      }),
-      new CssMinimizerPlugin(),
-    ],
+    // minimizer: [
+    //   new TerserJSPlugin({
+    //     test: /\.js(\?.*)?$/i,
+    //     exclude: /\/node_modules/,
+    //   }),
+    //   new CssMinimizerPlugin(),
+    // ],
     //runtimeChunk: "single",
     // splitChunks: {
     //   chunks: "all",
