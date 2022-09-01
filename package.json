@@ -1,6 +1,6 @@
 {
   "name": "antd-ui-b",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
@@ -32,7 +32,7 @@
     "lint-staged": "lint-staged",
     "prepare-husky": "husky install",
     "prep": "yarn && yarn  prepare-husky",
-    "prepare": "yarnbuild",
+    "prepare": "yarn build",
     "prepublishOnly": "npm test && npm run lint-staged",
     "storybook": "start-storybook -p 6006 -s public --ci",
     "storybook:heroku": "npx http-server build -p $PORT",
