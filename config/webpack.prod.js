@@ -11,10 +11,10 @@ module.exports = merge(common, {
   output: {
     path: paths.build,
     publicPath: "dist",
-    filename: "js/[name].[contenthash].bundle.js",
+    filename: "index.js",
     globalObject: "this",
-    library: "elevate-component-library",
-    libraryExport: "default",
+    library: "antd-ui-b",
+    //libraryExport: "default",
     libraryTarget: "umd",
   },
   module: {
@@ -41,8 +41,9 @@ module.exports = merge(common, {
     // Extracts CSS into separate files
     // Note: style-loader is for development, MiniCssExtractPlugin is for production
     new MiniCssExtractPlugin({
-      filename: "styles/[name].[contenthash].css",
-      chunkFilename: "[id].css",
+      filename: "dist/antd-ui-b.min.css",
+      // filename: "styles/[name].[contenthash].css",
+      // chunkFilename: "[id].css",
     }),
   ],
   optimization: {
@@ -55,19 +56,19 @@ module.exports = merge(common, {
       }),
       new CssMinimizerPlugin(),
     ],
-    runtimeChunk: "single",
-    splitChunks: {
-      chunks: "all",
-      maxInitialRequests: Infinity,
-      minSize: 0,
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all",
-        },
-      },
-    },
+    //runtimeChunk: "single",
+    // splitChunks: {
+    //   chunks: "all",
+    //   maxInitialRequests: Infinity,
+    //   minSize: 0,
+    //   cacheGroups: {
+    //     defaultVendors: {
+    //       test: /[\\/]node_modules[\\/]/,
+    //       name: "vendors",
+    //       chunks: "all",
+    //     },
+    //   },
+    // },
   },
 
   performance: {

@@ -12,14 +12,12 @@ module.exports = {
   // Where webpack outputs the assets and bundles
   output: {
     path: paths.build,
-    filename: "[name].bundle.js",
-    publicPath: "/",
+    filename: "index.js",
     library: {
-      name: "Elevate",
+      name: "antd-ui-b",
       type: "umd",
       umdNamedDefine: true,
     },
-    library: "Elevate",
   },
   // Customize the webpack build process
   plugins: [
